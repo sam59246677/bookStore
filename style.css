@@ -106,3 +106,19 @@ button:hover {
   border: none;
   border-radius: 3px;
 } */
+#checkout-btn {
+  background: #673ab7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition:  background 5s;
+}
+
+#checkout-btn:hover {
+  background: red;
+}

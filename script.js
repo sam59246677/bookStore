@@ -16,34 +16,22 @@ function addToCart(name, price) {
   updateCart();
 }
 
-// function updateCart() {
-//   const cartList = document.getElementById("cart-items");
-//   const totalEl = document.getElementById("total");
 
-//   cartList.innerHTML = "";
+// دکمه پرداخت
+document.getElementById("checkout-btn").onclick = function () {
+  if (cart.length === 0) {
+    alert("سبد خرید شما خالی است!");
+  } else {
+    alert("✅ پرداخت با موفقیت انجام شد!\nجمع کل: " + total + " تومان");
 
-//   cart.forEach((item, index) => {
-//     let li = document.createElement("li");
-//     li.textContent = `${item.name} - تعداد: ${item.qty} - جمع: ${item.totalPrice} تومان `;
+    // بعد از پرداخت، سبد خرید خالی می‌شود
+    cart = [];
+    total = 0;
+    updateCart();
+  }
+};
 
-//     // 🔴 دکمه حذف
-//     let removeBtn = document.createElement("button");
-//     removeBtn.textContent = "حذف";
-//     removeBtn.classList.add("remove-btn");
 
-//     // رویداد کلیک حذف
-//     removeBtn.onclick = function() {
-//       total -= item.totalPrice;   // کم کردن از مجموع کل
-//       cart.splice(index, 1);      // حذف آیتم از cart
-//       updateCart();               // دوباره رندر لیست
-//     };
-
-//     li.appendChild(removeBtn);
-//     cartList.appendChild(li);
-//   });
-
-//   totalEl.textContent = total;
-// }
 
 function updateCart() {
   const cartList = document.getElementById("cart-items");
