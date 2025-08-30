@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8">
+  <title>فروشگاه کتاب سام</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1> فروشگاه کتاب سام</h1>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>کتاب‌ها</h2>
+      <div class="product-list">
+        <div class="product">
+          <h3>کتاب جاوااسکریپت</h3>
+          <p>قیمت: 100,000 تومان</p>
+          <button onclick="addToCart('کتاب جاوااسکریپت', 100000)"><span id="s">🛒افزودن</span> </button>
+        </div>
+        <div class="product">
+          <h3>کتاب HTML & CSS</h3>
+          <p>قیمت: 80,000 تومان</p>
+          <button onclick="addToCart('کتاب HTML & CSS', 80000)">🛒 افزودن</button>
+        </div>
+        <div class="product">
+          <h3>کتاب پایتون</h3>
+          <p>قیمت: 120,000 تومان</p>
+          <button onclick="addToCart('کتاب پایتون', 120000)">🛒 افزودن</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="cart">
+      <h2> سبد خرید</h2>
+      <ul id="cart-items"></ul>
+      <p><strong>جمع کل: <span id="total">0</span> تومان</strong></p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

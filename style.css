@@ -1,0 +1,108 @@
+body {
+  font-family: tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  direction: rtl;
+}
+
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h1::before {
+  content: "📚 ";
+}
+
+main {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.products,.cart {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.cart h2::before {
+content: "🛍️";
+}
+
+.product {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.product:last-child {
+  border-bottom: none;
+}
+
+button {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  margin-top: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background .02s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+#cart-items li {
+  margin: 5px 0;
+}
+
+#cart-items .remove-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-Right: 10px;
+  border-Radius: 5px;
+  cursor: pointer;
+}
+#cart-items .plus-btn,
+#cart-items .minus-btn {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#cart-items .plus-btn:hover {
+  background: #0b7dda;
+}
+
+#cart-items .minus-btn {
+  background: #ff9800;
+}
+
+#cart-items .minus-btn:hover {
+  background: #e68900;
+}
+
+#s{
+ 
+  background-color: red;
+  opacity:0.5;
+  border: none;
+  border-radius: 3px;
+}
