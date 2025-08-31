@@ -12,36 +12,20 @@ header {
   padding: 15px;
   text-align: center;
 }
+h1::before { content: "📚 "; }
 
-h1::before {
-  content: "📚 ";
-}
-
-main {
-  display: flex;
-  padding: 20px;
-  gap: 20px;
-}
-
-.products,.cart {
+main { display: flex; padding: 20px; gap: 20px; }
+.products, .cart {
   background: white;
   padding: 20px;
   border-radius: 8px;
   flex: 1;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.cart h2::before {
-content: "🛍️";
-}
+.cart h2::before { content: "🛍️"; }
 
-.product {
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
-}
-
-.product:last-child {
-  border-bottom: none;
-}
+.product { border-bottom: 1px solid #eee; padding: 10px 0; }
+.product:last-child { border-bottom: none; }
 
 button {
   background: #4CAF50;
@@ -51,74 +35,128 @@ button {
   margin-top: 5px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background .02s;
 }
+button:hover { background: #45a049; }
 
-button:hover {
-  background: #45a049;
-}
-
-#cart-items {
-  list-style: none;
-  padding: 0;
-}
-
-#cart-items li {
-  margin: 5px 0;
-}
+#cart-items { list-style: none; padding: 0; }
+#cart-items li { margin: 5px 0; }
 
 #cart-items .remove-btn {
   background: red;
-  color: white;
-  border: none;
   padding: 5px 10px;
-  margin-Right: 10px;
-  border-Radius: 5px;
-  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 #cart-items .plus-btn,
 #cart-items .minus-btn {
   background: #2196F3;
-  color: white;
-  border: none;
   padding: 5px 10px;
   margin-right: 5px;
   border-radius: 5px;
-  cursor: pointer;
 }
+#cart-items .minus-btn { background: #ff9800; }
+#cart-items .plus-btn:hover { background: #0b7dda; }
+#cart-items .minus-btn:hover { background: #e68900; }
 
-#cart-items .plus-btn:hover {
-  background: #0b7dda;
-}
-
-#cart-items .minus-btn {
-  background: #ff9800;
-}
-
-#cart-items .minus-btn:hover {
-  background: #e68900;
-}
-
-/* #s{
- 
-  background-color: red;
-  opacity:0.5;
-  border: none;
-  border-radius: 3px;
-} */
 #checkout-btn {
   background: #673ab7;
-  color: white;
-  border: none;
   padding: 10px 15px;
   margin-top: 10px;
   border-radius: 6px;
-  cursor: pointer;
   font-size: 16px;
   width: 100%;
-  transition:  background 5s;
+}
+#checkout-btn:hover { background: red; }
+
+/* مودال */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.modal.show { display: block; opacity: 1; }
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all .4s ease;
+}
+.modal.show .modal-content { transform: translateY(0); opacity: 1; }
+
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  z-index: 10; /* 👈 این باعث میشه روی progress bar بیاد */
 }
 
-#checkout-btn:hover {
-  background: red;
+.close-btn:hover { color: #000; }
+
+.step { display: flex; flex-direction: column; gap: 10px; }
+.step button { padding: 10px; border-radius: 6px; font-size: 16px; }
+
+/* Progress Bar */
+
+/*  */
+
+
+
+
+
+.progress-container {
+  position: relative;
+  margin-bottom: 30px;
+  direction: rtl;
 }
+
+.progress-bar {
+  height: 5px;
+  background: #4CAF50;
+  width: 0;
+  position: absolute;
+  top: 50%;             /* 👈 خط رو وسط کادر بیار */
+  right: 0;
+  transform: translateY(-50%);  /* 👈 دقیقاً وسط چین */
+  transition: width 0.3s ease;
+  z-index: 0;           /* 👈 زیر دایره‌ها باشه */
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1; /* 👈 دایره‌ها بالای خط باشن */
+}
+
+.step-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  font-size: 12px;
+}
+.step-circle.active { background: #4CAF50; }
+
+
+
+
+
+
+

@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="fa">
+
 <head>
   <meta charset="utf-8">
   <title>فروشگاه کتاب سام</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <h1> فروشگاه کتاب سام</h1>
@@ -17,7 +19,7 @@
         <div class="product">
           <h3>کتاب جاوااسکریپت</h3>
           <p>قیمت: 100,000 تومان</p>
-          <button onclick="addToCart('کتاب جاوااسکریپت', 100000)"> <!--<span id="s">🛒افزودن</span> -->🛒 افزودن</button> 
+          <button onclick="addToCart('کتاب جاوااسکریپت', 100000)">🛒 افزودن</button>
         </div>
         <div class="product">
           <h3>کتاب HTML & CSS</h3>
@@ -37,10 +39,54 @@
       <ul id="cart-items"></ul>
       <p><strong>جمع کل: <span id="total">0</span> تومان</strong></p>
       <button id="checkout-btn">💳 پرداخت</button>
+
+      <!-- مودال چندمرحله‌ای -->
+      <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+
+          <!-- Progress Bar -->
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+            <div class="progress-steps">
+              <span class="step-circle active">"اطلاعات"</span>
+              <span class="step-circle">بازبینی</span>
+              <span class="step-circle">3</span>
+            </div>
+          </div>
+
+          <!-- مرحله ۱: مشخصات مشتری -->
+          <div class="step step-1">
+            <h2>مشخصات مشتری</h2>
+            <label>نام و نام خانوادگی:</label>
+            <input type="text" id="cust-name" required>
+            <label>شماره تلفن:</label>
+            <input type="text" id="cust-phone" required>
+            <label>آدرس:</label>
+            <textarea id="cust-address" required></textarea>
+            <button id="next-to-review">ادامه ➡️</button>
+          </div>
+
+          <!-- مرحله ۲: مرور سفارش -->
+          <div class="step step-2" style="display:none;">
+            <h2>مرور سفارش</h2>
+            <ul id="order-review"></ul>
+            <p><strong>جمع کل: <span id="review-total"></span> تومان</strong></p>
+            <button id="back-to-info">⬅️ برگشت</button>
+            <button id="next-to-confirm">ادامه ➡️</button>
+          </div>
+
+          <!-- مرحله ۳: تأیید نهایی -->
+          <div class="step step-3" style="display:none;">
+            <h2>تأیید نهایی</h2>
+            <p>اطلاعات شما ثبت شد. برای پرداخت روی دکمه زیر کلیک کنید:</p>
+            <button id="submit-order">💳 رفتن به درگاه بانکی</button>
+          </div>
+        </div>
+      </div>
     </aside>
   </main>
 
   <script src="script.js"></script>
-  
 </body>
 </html>
