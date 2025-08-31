@@ -86,6 +86,8 @@ button:hover { background: #45a049; }
   padding: 20px;
   border-radius: 12px;
   width: 400px;
+  max-height: 90vh;   /* 👈 ارتفاع مودال محدود به ۹۰٪ صفحه */
+  overflow-y: auto;   /* 👈 اسکرول عمودی فعال */
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
   transform: translateY(-50px);
   opacity: 0;
