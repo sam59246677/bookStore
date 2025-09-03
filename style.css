@@ -12,7 +12,7 @@ header {
   padding: 15px;
   text-align: center;
 }
-h1::before { content: "📚 "; }
+ header h1::before { content: "📚 "; }
 
 main { display: flex; padding: 20px; gap: 20px; }
 .products, .cart {
@@ -24,7 +24,7 @@ main { display: flex; padding: 20px; gap: 20px; }
 }
 .cart h2::before { content: "🛍️"; }
 
-.product { border-bottom: 1px solid #eee; padding: 10px 0; }
+.product { border-bottom: 1px solid #eee; padding: 5px; ; }
 .product:last-child { border-bottom: none; }
 
 button {
@@ -35,23 +35,24 @@ button {
   margin-top: 5px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background 0.2s;
 }
 button:hover { background: #45a049; }
 
 #cart-items { list-style: none; padding: 0; }
 #cart-items li { margin: 5px 0; }
 
-#cart-items .remove-btn {
-  background: red;
-  padding: 5px 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-}
 #cart-items .plus-btn,
 #cart-items .minus-btn {
   background: #2196F3;
   padding: 5px 10px;
   margin-right: 5px;
+  border-radius: 5px;
+}
+#cart-items .remove-btn {
+  background: red;
+  padding: 5px 10px;
+  margin-right: 10px;
   border-radius: 5px;
 }
 #cart-items .minus-btn { background: #ff9800; }
@@ -65,6 +66,7 @@ button:hover { background: #45a049; }
   border-radius: 6px;
   font-size: 16px;
   width: 100%;
+  transition: background 0.3s ease;
 }
 #checkout-btn:hover { background: red; }
 
@@ -72,7 +74,7 @@ button:hover { background: #45a049; }
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 3;
   inset: 0;
   background: rgba(0,0,0,0.6);
   opacity: 0;
@@ -86,7 +88,7 @@ button:hover { background: #45a049; }
   padding: 20px;
   border-radius: 12px;
   width: 400px;
-  max-height: 90vh;   /* 👈 ارتفاع مودال محدود به ۹۰٪ صفحه */
+  max-height: 80vh;   /* 👈 ارتفاع مودال محدود به ۹۰٪ صفحه */
   overflow-y: auto;   /* 👈 اسکرول عمودی فعال */
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
   transform: translateY(-50px);
@@ -97,11 +99,11 @@ button:hover { background: #45a049; }
 
 
 .close-btn {
-  float: right;
+  float: left;
   cursor: pointer;
   font-size: 20px;
   position: relative;
-  z-index: 10; /* 👈 این باعث میشه روی progress bar بیاد */
+  z-index: 2; /* 👈 این باعث میشه روی progress bar بیاد */
 }
 
 .close-btn:hover { color: #000; }
@@ -130,7 +132,7 @@ button:hover { background: #45a049; }
   position: absolute;
   top: 50%;             /* 👈 خط رو وسط کادر بیار */
   right: 0;
-  transform: translateY(-50%);  /* 👈 دقیقاً وسط چین */
+   transform: translateY(-10%);  /* 👈 دقیقاً وسط چین */
   transition: width 0.3s ease;
   z-index: 0;           /* 👈 زیر دایره‌ها باشه */
 }
@@ -143,7 +145,7 @@ button:hover { background: #45a049; }
 }
 
 .step-circle {
-  width: 45px;
+  width: 55px;
   height: 45px;
   border-radius: 50%;
   background: #ccc;
@@ -156,6 +158,15 @@ button:hover { background: #45a049; }
 }
 .step-circle.active { background: #4CAF50; }
 
+
+@media (orientation: landscape) {
+  .modal-content {
+    max-height: 80vh;   /* ارتفاع کمتر تا دکمه‌ها دیده بشن */
+  }
+  .modal-body {
+    overflow-y: auto;   /* اسکرول فعال */
+  }
+}
 
 
 

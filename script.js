@@ -71,7 +71,7 @@ const progressBar = document.getElementById("progress-bar");
 const stepCircles = document.querySelectorAll(".step-circle");
 
 function updateProgress(step) {
-  progressBar.style.width = ((step - 1) / (stepCircles.length - 1)) * 100 + "%";
+  progressBar.style.width = ((step - 1) / (stepCircles.length - 1)) * 90 + "%";
   stepCircles.forEach((circle, index) => {
     if (index < step) circle.classList.add("active");
     else circle.classList.remove("active");
